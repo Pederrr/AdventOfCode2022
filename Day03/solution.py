@@ -1,10 +1,13 @@
-def calculate_priority(char) -> int:
+from typing import List
+
+
+def calculate_priority(char: str) -> int:
     if char.islower():
         return ord(char) - ord('a') + 1
     return ord(char) - ord('A') + 27
 
 
-def find_common_item(strings) -> str:
+def find_common_item(strings: List[str]) -> str:
     common_chars = set(strings[0])
     for string in strings:
         common_chars = common_chars.intersection(set(string))
@@ -17,7 +20,7 @@ def main() -> None:
     group_priorities = 0
     with open("input.txt", "r") as file:
         line_count = 0
-        lines = []
+        lines: List[str] = []
         for line in file:
             line_count += 1
             line = line.strip();
