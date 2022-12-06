@@ -3,14 +3,12 @@ from collections import deque
 
 def find_marker(line: str, marker_len: int) -> int:
     last_chars = deque()
-    index = 0
-    for char in line:
-        index += 1
-        last_chars.append(char)
+    for i in range(0, len(line)):
+        last_chars.append(line[i])
         if len(last_chars) > marker_len:
             last_chars.popleft()
         if len(set(last_chars)) == marker_len:
-            return index
+            return i + 1
     return -1
 
 
